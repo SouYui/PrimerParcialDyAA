@@ -4,9 +4,10 @@
 from swap import swap, factorial
 import copy
 
-# Mide la distancia entre dos puntos y los devuelve en una tupla 
-# de distancia hacia la derecha y distancia hacia arriba 
-# en los resltados right y up
+# ! Requiere dos tuplas de numeros enteros las cuales significaran puntos de un plano cartesiano
+# R Mide la distancia entre dos puntos y los devuelve en una tupla 
+#   de distancia hacia la derecha y distancia hacia arriba 
+#   en los resltados right y up
 def distancia_puntos(puntoInicial, puntoFinal):
     xInicial, yInicial = puntoInicial
     xFinal, yFinal = puntoFinal
@@ -25,9 +26,10 @@ def distancia_puntos(puntoInicial, puntoFinal):
     
     return (right, up)
 
-# Crea una lista de elementos para crear las permutaciones
-# devolviendo con n cantidad de 1's para movimientos hacia la derecha
-# y n 2's para movimientos hacia arriba que son proporcionados por <<distancia_puntos>>
+# ! Requiere las distancias de movimientos a la derecha y hacia arriba en int
+# R Crea una lista de elementos para crear las permutaciones
+#   devolviendo con n cantidad de 1's para movimientos hacia la derecha
+#   y n 2's para movimientos hacia arriba que son proporcionados por <<distancia_puntos>>
 def lista_elementos(distanciaX, distanciaY):
     listaResult = []
     
@@ -42,8 +44,9 @@ def lista_elementos(distanciaX, distanciaY):
     else:
         print("Error de datos, verifique su entrada.")
 
-# Crea una lista de todas las permutaciones posibles para los caminos a tomar por el usuario
-# de caminos hasta llegar a un punto dado
+# ! Requiere una lista de elementos con elementos 1's y 2's
+# R Crea una lista de todas las permutaciones posibles para los caminos a tomar por el usuario
+#   de caminos hasta llegar a un punto dado
 def permutaciones(n):
     s = []
     listaF=[]
@@ -68,8 +71,9 @@ def permutaciones(n):
             listaF.append(list(s))
     return listaF
 
-# Dada la lista de permutaciones se cambia cada elemento para darlo con "r" para
-# movimientos hacia la derecha y "u" para movimientos hacia arriba
+# ! Requiere una lista de permutaciones con numeros 1 y 2
+# R Cambia cada elemento para darlo con "r" para
+#   movimientos hacia la derecha y "u" para movimientos hacia arriba
 def cambio_usuario(listaPermutaciones):
     if(type(listaPermutaciones) == list):
         listaResult = []
@@ -84,8 +88,9 @@ def cambio_usuario(listaPermutaciones):
     else:
         print("No es una lista, verifique su entrada.")
 
-# Devuelve una cadena con todas las permutaciones de todos los caminos a tomar
-# ordenados desde el primero hasta los n con su numeracion
+# ! Requiere dos tuplas de numeros enteros las cuales significaran puntos de un plano cartesiano
+# R Devuelve una cadena con todas las permutaciones de todos los caminos a tomar
+#   ordenados desde el primero hasta los n con su numeracion
 def caminos_dos_puntos(puntoInicial, puntoFinal):
     x, y = distancia_puntos(puntoInicial, puntoFinal)
     lista = lista_elementos(x, y)
