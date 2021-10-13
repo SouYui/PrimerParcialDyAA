@@ -71,6 +71,7 @@ def suma_maxima_terc(lista):
             indiceDos = i
     return(maximo, indiceDos, indiceUno)
 
+# -------------------- Prueba -----------------
 data = [27, 6, -50, 21, -3, 14, 16, -8, 42, 33, -21, 9]
 maximo, indiceDos, indiceUno = suma_maxima(data)
 print("La suma maxima es:", maximo, " del segmento de la lista:", data[indiceUno:indiceDos + 1])
