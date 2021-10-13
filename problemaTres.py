@@ -42,6 +42,8 @@ def lista_elementos(distanciaX, distanciaY):
     else:
         print("Error de datos, verifique su entrada.")
 
+# Crea una lista de todas las permutaciones posibles para los caminos a tomar por el usuario
+# de caminos hasta llegar a un punto dado
 def permutaciones(n):
     s = []
     listaF=[]
@@ -66,6 +68,8 @@ def permutaciones(n):
             listaF.append(list(s))
     return listaF
 
+# Dada la lista de permutaciones se cambia cada elemento para darlo con "r" para
+# movimientos hacia la derecha y "u" para movimientos hacia arriba
 def cambio_usuario(listaPermutaciones):
     if(type(listaPermutaciones) == list):
         listaResult = []
@@ -80,19 +84,25 @@ def cambio_usuario(listaPermutaciones):
     else:
         print("No es una lista, verifique su entrada.")
 
+# Devuelve una cadena con todas las permutaciones de todos los caminos a tomar
+# ordenados desde el primero hasta los n con su numeracion
+def caminos_dos_puntos(puntoInicial, puntoFinal):
+    x, y = distancia_puntos(puntoInicial, puntoFinal)
+    lista = lista_elementos(x, y)
+    listaPermutaciones = permutaciones(lista)
+    listaCambio = copy.deepcopy(listaPermutaciones)
+    resultCambio = cambio_usuario(listaCambio)
+    
+    solucion = "Caminos posibles a tomar de " + str(puntoInicial) + " a " + str(puntoFinal) + ": \n"
+    for index, value in enumerate(resultCambio):
+        solucion += str(index) + " - " + str(value) + "\n"
+    
+    return solucion
 
 
+# -------------------- Prueba -----------------
 puntoUno = (5, 3)
 puntoDos = (8, 8)
 
-# -------------------------- Para metodo final -----------------------------------------
-x, y = distancia_puntos(puntoUno, puntoDos)
-lista = lista_elementos(x, y)
-listaPermutaciones = permutaciones(lista)
-listaCambio = copy.deepcopy(listaPermutaciones)
-resultCambio = cambio_usuario(listaCambio)
-# print(x, y)
-# print(lista)
-print(listaPermutaciones)
-# print("\n*********************************************************\n")
-print(resultCambio)
+result = caminos_dos_puntos(puntoUno, puntoDos)
+print(result)
