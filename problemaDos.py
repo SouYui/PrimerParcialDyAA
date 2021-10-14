@@ -24,11 +24,11 @@ def suma_maxima(lista):
 
 def suma_maxima_sec(lista):
     tabla = [0] * len(lista)
-    for i in range(len(lista)):
-        tabla[i] = [0] * len(lista)
     sumaS = [0] * len(lista)
     for i in range(len(lista)):
+        tabla[i] = [0] * len(lista)
         sumaS[i] = [0] * len(lista)
+        
     maximo = 0
     indiceUno = 0
     indiceDos = 0
@@ -73,5 +73,5 @@ def suma_maxima_terc(lista):
 
 # -------------------- Prueba -----------------
 data = [27, 6, -50, 21, -3, 14, 16, -8, 42, 33, -21, 9]
-maximo, indiceDos, indiceUno = suma_maxima(data)
+maximo, indiceDos, indiceUno = suma_maxima_sec(data)
 print("La suma maxima es:", maximo, " del segmento de la lista:", data[indiceUno:indiceDos + 1])
