@@ -1,6 +1,9 @@
 # Solución para el problema N° 2 de Diseño y Análisis de Algoritmos
 # Autor: Sou - Wendy
 
+# ! Para el correcto funcionamiento del algoritmo es requerida una lista de datos de tipo entero.
+# R Devuelve una tupla con los índices para hacer una sublista de los elementos que dan 
+#   la suma máxima y la misma suma máxima.
 def suma_maxima(lista):
     tabla = [0] * len(lista)
     for i in range(len(lista)):
@@ -22,6 +25,9 @@ def suma_maxima(lista):
                 indiceDos = j
     return(maximo, indiceUno, indiceDos)
 
+# ! Para el correcto funcionamiento del algoritmo es requerida una lista de datos de tipo entero.
+# R Devuelve una tupla con los índices para hacer una sublista de los elementos que dan 
+#   la suma máxima y la misma suma máxima.
 def suma_maxima_sec(lista):
     sumaS = [0] * len(lista)
     for i in range(len(lista)):
@@ -44,6 +50,9 @@ def suma_maxima_sec(lista):
             indiceDos = i
     return(maximo, indiceUno, indiceDos)
 
+# ! Para el correcto funcionamiento del algoritmo es requerida una lista de datos de tipo entero.
+# R Devuelve una tupla con los índices para hacer una sublista de los elementos que dan 
+#   la suma máxima y la misma suma máxima.
 def suma_maxima_terc(lista):
     #Buscamos la suma que sea mas larga
     maximo = 0
@@ -63,5 +72,5 @@ def suma_maxima_terc(lista):
 
 # -------------------- Prueba -----------------
 data = [27, 6, -50, 21, -3, 14, 16, -8, 42, 33, -21, 9]
-maximo, indiceDos, indiceUno = suma_maxima(data)
+maximo, indiceDos, indiceUno = suma_maxima_terc(data)
 print("La suma maxima es:", maximo, " del segmento de la lista:", data[indiceUno:indiceDos + 1])
