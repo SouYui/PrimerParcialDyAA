@@ -38,7 +38,7 @@ def lista_elementos(distanciaX, distanciaY):
             # 1 es igual a un movimiento a la derecha
             listaResult.append(1)
         for i in range(distanciaY):
-            # 2 es igual a un movimiento a la izquierda
+            # 2 es igual a un movimiento arriba
             listaResult.append(2)
         return listaResult
     else:
@@ -49,10 +49,10 @@ def lista_elementos(distanciaX, distanciaY):
 #   de caminos hasta llegar a un punto dado
 def permutaciones(n):
     s = []
-    listaF=[]
+    listaFinal=[]
     for i in n:
         s.append(i)
-    listaF.append(list(s))
+    listaFinal.append(list(s))
     for i in range(1, factorial(len(n))):
         m = len(n) - 2
         while (s[m] >= s[m + 1]):
@@ -67,9 +67,9 @@ def permutaciones(n):
             swap(s, p, q)
             p = p + 1
             q = q - 1
-        if(s not in listaF):
-            listaF.append(list(s))
-    return listaF
+        if(s not in listaFinal):
+            listaFinal.append(list(s))
+    return listaFinal
 
 # ! Requiere una lista de permutaciones con numeros 1 y 2
 # R Cambia cada elemento para darlo con "r" para
@@ -100,14 +100,14 @@ def caminos_dos_puntos(puntoInicial, puntoFinal):
     
     solucion = "Caminos posibles a tomar de " + str(puntoInicial) + " a " + str(puntoFinal) + ": \n"
     for index, value in enumerate(resultCambio):
-        solucion += str(index) + " - " + str(value) + "\n"
+        solucion += str(index + 1) + " - " + str(value) + "\n"
     
     return solucion
 
 
 # -------------------- Prueba -----------------
-puntoUno = (5, 3)
-puntoDos = (8, 8)
+puntoUno = (2, 1)
+puntoDos = (7, 4)
 
 result = caminos_dos_puntos(puntoUno, puntoDos)
 print(result)
